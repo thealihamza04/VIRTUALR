@@ -4,10 +4,9 @@
 
 # Documentation for VIRTUALR Repository
 
-## Overview
-VIRTUALR appears to be a MERN stack application (based on the repository structure) that likely focuses on virtual reality or related technologies. Below is the documentation for this repository.
+## OverviewA React-powered concept landing page highlighting virtual reality experiences.
 
-## Repository Structure
+## Repository Structure 
 
 ```
 VIRTUALR/
