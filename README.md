@@ -4,7 +4,8 @@
 
 # Documentation for VIRTUALR Repository
 
-## OverviewA React-powered concept landing page highlighting virtual reality experiences.
+## OverviewA 
+A React-powered concept landing page highlighting virtual reality experiences.
 
 ## Repository Structure 
 
