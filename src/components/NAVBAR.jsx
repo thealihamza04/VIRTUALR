@@ -1,17 +1,19 @@
 import Logo from "../assets/logo.png";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { navItems } from "../constants/index.jsx";
 
 const NAVBAR = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const location = useLocation();
+
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
   };
 
   return (
-    <nav className='sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/800'>
+    <nav className='sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/800 shadow-md'>
       <div className='container py-4 mx-auto relative text-sm z-50 '>
         <div className='flex justify-between items-center '>
           <div className='flex items-center flex-shrink-0'>
@@ -22,7 +24,14 @@ const NAVBAR = () => {
             {navItems.map((item, index) => {
               return (
                 <li key={index}>
-                  <Link to={item.href}>{item.label}</Link>
+                  <Link
+                    to={item.href}
+                    className={`hover:text-orange-500 transition-colors ${
+                      location.pathname === item.href ? "text-orange-500" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               );
             })}
@@ -52,7 +61,14 @@ const NAVBAR = () => {
           <ul>
             {navItems.map((item, index) => (
               <li key={index} className='py-4'>
-                <Link to={item.href}>{item.label}</Link>
+                <Link
+                  to={item.href}
+                  className={`hover:text-orange-500 transition-colors ${
+                    location.pathname === item.href ? "text-orange-500" : ""
+                  }`}
+                >
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
