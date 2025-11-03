@@ -5,6 +5,8 @@ import HomePage from "./pages/HomePage.jsx";
 import PricingPage from "./pages/PricingPage.jsx";
 import TestimonialsPage from "./pages/TestimonialsPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import SignInPage from "./pages/SignInPage.jsx";
+import CreateAccountPage from "./pages/CreateAccountPage.jsx";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/create-account" element={<CreateAccountPage />} />
       </Routes>
     </Router>
   );
