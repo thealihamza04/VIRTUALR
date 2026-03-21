@@ -1,16 +1,19 @@
 import Logo from "../assets/logo.png";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { navItems } from "../constants/index";
+import { Link, useLocation } from "react-router-dom";
+import { navItems } from "../constants/index.jsx";
 
 const NAVBAR = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const location = useLocation();
+
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
   };
 
   return (
-    <nav className='sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/800'>
+    <nav className='sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/800 shadow-md'>
       <div className='container py-4 mx-auto relative text-sm z-50 '>
         <div className='flex justify-between items-center '>
           <div className='flex items-center flex-shrink-0'>
@@ -21,21 +24,28 @@ const NAVBAR = () => {
             {navItems.map((item, index) => {
               return (
                 <li key={index}>
-                  <a href={item.href}>{item.label}</a>
+                  <Link
+                    to={item.href}
+                    className={`hover:text-orange-500 transition-colors ${
+                      location.pathname === item.href ? "text-orange-500" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               );
             })}
           </ul>
           <div className='hidden lg:flex justify-center space-x-12 items-center'>
-            <a href='#' className='py-2 px-3 border rounded-md'>
+            <Link to='/signin' className='py-2 px-3 border rounded-md'>
               Sign In
-            </a>
-            <a
-              href='#'
+            </Link>
+            <Link
+              to='/create-account'
               className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'
             >
               Create an account
-            </a>
+            </Link>
           </div>
           <div className='lg:hidden md:flex flex-col justify-end'>
             <button className='pr-3' onClick={toggleNavbar}>
@@ -51,23 +61,30 @@ const NAVBAR = () => {
           <ul>
             {navItems.map((item, index) => (
               <li key={index} className='py-4'>
-                <a href={item.href}>{item.label}</a>
+                <Link
+                  to={item.href}
+                  className={`hover:text-orange-500 transition-colors ${
+                    location.pathname === item.href ? "text-orange-500" : ""
+                  }`}
+                >
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
           <div className='flex space-x-2 md:space-x-6'>
-            <a
-              href='#'
+            <Link
+              to='/signin'
               className='py-2 px-2 border rounded-md text-xs md:text-md'
             >
               Sign In
-            </a>
-            <a
-              href='#'
+            </Link>
+            <Link
+              to='/create-account'
               className='px-2 py-2 rounded-md bg-gradient-to-r from-orange-500 to-orange-800'
             >
               Create an account
-            </a>
+            </Link>
           </div>
         </div>
       </div>
